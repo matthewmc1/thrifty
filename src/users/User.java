@@ -26,7 +26,7 @@ class User {
 	}
 	
 	/*
-	 * Getters and Setters
+	* Getters and Setters
 	 */
 	public String getFirstName() {
 		return firstName;
@@ -157,10 +157,5 @@ class User {
 		}
 		return false;
 	}
-
-
-	
-	
-	
 
 }
