@@ -48,8 +48,8 @@ class User {
 		return username;
 	}
 
-	public void setUsername(String lastName) {
-		this.lastName = lastName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 	public String getEmail() {
