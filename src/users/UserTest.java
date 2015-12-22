@@ -58,7 +58,7 @@ public class UserTest {
 	public void testSetUsername() {
 		try{
 		user1.setUsername("newUsername");
-		assertEquals("Check getting username", "admin", user1.getUsername());
+		assertEquals("Check getting username", "newUsername", user1.getUsername());
 		}catch (Exception e)
 		{
 			System.out.println(e.getStackTrace());
