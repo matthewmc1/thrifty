@@ -12,16 +12,16 @@ class User {
 	private String username;
 	private String firstName;
 	private String lastName;
-	private Password password;
+	private Object password;
 	private String email;
 	
 	//User Class.
-	public User(String username, String firstName, String lastName, Password password, String email)
+	public User(String username, String firstName, String lastName, Object pw, String email)
 	{
 		this.setUsername(username);
 		this.setFirstName(firstName);
 		this.setLastName(lastName);
-		this.setPassword(password);
+		this.setPassword(pw);
 		this.setEmail(email);
 	}
 	
@@ -60,17 +60,30 @@ class User {
 		this.email = email;
 	}
 	
-	public void setPassword(Password password) {
+	public void setPassword(Object password) {
 		this.password = password;
 	}
 	
 	/*
 	 * Add user to ArrayList.
 	 */
-	public User addUser(User us)
+	public void addUser(User us)
 	{
 		users.add(us);
-		return us;
+	}
+	
+	/*
+	 * Method to return all usernames
+	 */
+	public String getUsernames()
+	{
+		for(User user: users)
+		{
+			String username = user.getUsername();
+			return username;
+		}
+		
+		return null;
 	}
 	
 	/*
