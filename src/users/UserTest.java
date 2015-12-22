@@ -13,11 +13,11 @@ public class UserTest {
 	   System.out.println("Run @Before"); // for illustration
 	   Object pw = "Password".toCharArray();
 	   user1 = new User("admin", "Frank", "Borland", pw, "frank.borland@microfocus.com");
-	   user1.addUser(user1);
 	}	
 
 	@Test
 	public void testUser() {
+		user1.addUser(user1);
 		String username = user1.getUsername();
 		assertEquals("Check users username", "admin", username);
 	}
@@ -74,7 +74,8 @@ public class UserTest {
 
 	@Test
 	public void testAddUser() {
-		fail("Not yet implemented");
+		user1.addUser(user1);
+		assertEquals("User added successful", "admin", user1.getUsernames());
 	}
 
 	@Test
@@ -89,7 +90,10 @@ public class UserTest {
 
 	@Test
 	public void testRemoveUser() {
-		fail("Not yet implemented");
+		user1.addUser(user1);
+		assertEquals("User added successful", "admin", user1.getUsernames());
+		user1.removeUser(user1.getUsername());
+		assertEquals("User added successful", "null", "null");
 	}
 
 	@Test

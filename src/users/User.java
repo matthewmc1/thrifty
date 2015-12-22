@@ -134,9 +134,9 @@ class User {
 		{
 			if(!users.isEmpty())
 			{
-				if(user.username.equals(username))
+				if(user.getUsername().equals(username))
 				{
-					users.remove(users.indexOf(username));
+					users.remove(user);
 				}else{
 					System.out.println("Username does not exist");
 				}
