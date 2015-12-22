@@ -5,6 +5,7 @@ import users.User;
 import org.junit.Before;
 import org.junit.Test;
 
+
 public class UserTest {
 
 	private User user1;
@@ -55,22 +56,32 @@ public class UserTest {
 
 	@Test
 	public void testSetUsername() {
-		fail("Not yet implemented");
+		try{
+		user1.setUsername("newUsername");
+		assertEquals("Check getting username", "admin", user1.getUsername());
+		}catch (Exception e)
+		{
+			System.out.println(e.getStackTrace());
+		}
 	}
 
 	@Test
 	public void testGetEmail() {
-		fail("Not yet implemented");
+		String email = user1.getEmail();
+		assertEquals("Check getting user email", "frank.borland@microfocus.com", email);
 	}
 
 	@Test
 	public void testSetEmail() {
-		fail("Not yet implemented");
+		String email = "newEmail@microfocus.com";
+		user1.setEmail(email);
+		assertEquals("Checking new email", email, user1.getEmail());
 	}
 
 	@Test
 	public void testSetPassword() {
-		fail("Not yet implemented");
+		Object newPw = "SetThisPassword";
+		user1.setPassword(newPw);
 	}
 
 	@Test
@@ -83,22 +94,22 @@ public class UserTest {
 	public void testGetUserbyUsername() {
 		user1.addUser(user1);
 		String username = "admin";
-		user1.getUserbyUsername(username);	
-		assertEquals(User.class, user1.getClass());
+		assertEquals("admin", user1.getUserbyUsername(username).getUsername());
 	}
 
 	@Test
 	public void testGetUserbyEmail() {
-		fail("Not yet implemented");
+		user1.addUser(user1);
+		String email = "frank.borland@microfocus.com";
+		assertEquals(email, user1.getUserbyEmail(email).getEmail());
 	}
 
 	@Test
 	public void testRemoveUser() {
 		try{
-		user1.addUser(user1);
-		assertEquals("User add successful", "admin", user1.getUsernames());
-		user1.removeUser(user1.getUsername());
-		assertEquals("User remove successful", "null", "null");
+			user1.addUser(user1);
+			assertEquals("User add successful", "admin", user1.getUsernames());
+			assertTrue("User remove successful", user1.removeUser(user1.getUsername()));
 		}catch(Exception e)
 		{
 			fail(e.getMessage());
