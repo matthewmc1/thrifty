@@ -36,17 +36,20 @@ public class UserTest {
 
 	@Test
 	public void testGetLastName() {
-		fail("Not yet implemented");
+		String lastName = user1.getLastName();
+		assertEquals("Get user lastname", "Borland", lastName);
 	}
 
 	@Test
 	public void testSetLastName() {
-		fail("Not yet implemented");
+		user1.setLastName("newLastName");
+		assertEquals("Check setting lastname", "newLastName", user1.getLastName());
 	}
 
 	@Test
 	public void testGetUsername() {
-		fail("Not yet implemented");
+		String username = user1.getUsername();
+		assertEquals("Check getting username", "admin", username);
 	}
 
 	@Test
