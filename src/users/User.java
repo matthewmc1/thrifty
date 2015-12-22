@@ -93,7 +93,7 @@ class User {
 	{
 		for(User user: users)
 		{
-			if(user.username.equals(username))
+			if(user.getUsername().equals(username))
 			{
 				System.out.println("Username: " + user.getUsername());
 				return user;

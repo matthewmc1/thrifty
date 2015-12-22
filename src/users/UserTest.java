@@ -4,13 +4,14 @@ import static org.junit.Assert.*;
 import users.User;
 import org.junit.Before;
 import org.junit.Test;
+
 public class UserTest {
 
 	private User user1;
 	
 	@Before
 	public void setUp() throws Exception {
-	   System.out.println("Run @Before"); // for illustration
+	   System.out.println("Run @Before");
 	   Object pw = "Password".toCharArray();
 	   user1 = new User("admin", "Frank", "Borland", pw, "frank.borland@microfocus.com");
 	}	
@@ -80,7 +81,10 @@ public class UserTest {
 
 	@Test
 	public void testGetUserbyUsername() {
-		fail("Not yet implemented");
+		user1.addUser(user1);
+		String username = "admin";
+		user1.getUserbyUsername(username);	
+		assertEquals(User.class, user1.getClass());
 	}
 
 	@Test
@@ -90,10 +94,15 @@ public class UserTest {
 
 	@Test
 	public void testRemoveUser() {
+		try{
 		user1.addUser(user1);
-		assertEquals("User added successful", "admin", user1.getUsernames());
+		assertEquals("User add successful", "admin", user1.getUsernames());
 		user1.removeUser(user1.getUsername());
-		assertEquals("User added successful", "null", "null");
+		assertEquals("User remove successful", "null", "null");
+		}catch(Exception e)
+		{
+			fail(e.getMessage());
+		}
 	}
 
 	@Test
